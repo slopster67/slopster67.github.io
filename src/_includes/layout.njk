@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if title %}{{ title }} | {% endif %}slopster</title>
+    <meta name="description" content="{{ description or 'slopster: independent internet menace, foul-mouthed web tinkerer, and a general stain on polite web design.' }}" />
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <div class="sky-noise"></div>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <span class="brand-mark">slopster</span>
+          <span class="brand-tag">independent internet menace</span>
+        </a>
+        <nav aria-label="Primary" class="site-nav">
+          <div class="nav-group" aria-label="main pages">
+            <a href="/"{% if page.url == '/' %} class="is-current" aria-current="page"{% endif %}>home</a>
+            <a href="/about/"{% if page.url == '/about/' %} class="is-current" aria-current="page"{% endif %}>about</a>
+            <a href="/manifesto/"{% if page.url == '/manifesto/' %} class="is-current" aria-current="page"{% endif %}>manifesto</a>
+            <a href="/now/"{% if page.url == '/now/' %} class="is-current" aria-current="page"{% endif %}>now</a>
+          </div>
+          <div class="nav-group" aria-label="sections">
+            <a href="/lab/"{% if page.url == '/lab/' %} class="is-current" aria-current="page"{% endif %}>lab</a>
+            <a href="/field-notes/"{% if page.url == '/field-notes/' %} class="is-current" aria-current="page"{% endif %}>field notes</a>
+            <a href="/links/"{% if page.url == '/links/' %} class="is-current" aria-current="page"{% endif %}>links</a>
+            <a href="/cv/"{% if page.url == '/cv/' %} class="is-current" aria-current="page"{% endif %}>cv</a>
+          </div>
+          <div class="nav-group nav-group-accent" aria-label="special page">
+            <a href="/i-love-water/"{% if page.url == '/i-love-water/' %} class="is-current" aria-current="page"{% endif %}>I LOVE WATER</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap site-main">
+      {{ content | safe }}
+    </main>
+    <footer class="site-footer wrap">
+      <div>
+        <p class="footer-title">slopster dot internet</p>
+        <p class="muted">built with Eleventy, bad manners, and a complete lack of shame.</p>
+      </div>
+      <p class="muted footer-stamp">fast pages, filthy edges.</p>
+    </footer>
+  </body>
+</html>
