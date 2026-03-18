@@ -5,66 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if title %}{{ title }} | {% endif %}slopster</title>
     <meta name="description" content="{{ description or 'slopster: independent internet menace, foul-mouthed web tinkerer, and a general stain on polite web design.' }}" />
-    <link rel="stylesheet" href="https://unpkg.com/98.css" />
     <link rel="stylesheet" href="/css/site.css" />
   </head>
   <body>
-    <div class="desktop">
-      <header class="window shell-window">
-        <div class="title-bar">
-          <div class="title-bar-text">slopster.exe</div>
-          <div class="title-bar-controls" aria-hidden="true">
-            <button aria-label="Minimize" tabindex="-1"></button>
-            <button aria-label="Maximize" tabindex="-1"></button>
-            <button aria-label="Close" tabindex="-1"></button>
-          </div>
-        </div>
-        <div class="window-body shell-body">
-          <div class="masthead">
-            <div class="masthead-copy">
-              <p class="site-version">personal website for rude little internet projects</p>
-              <a class="brand" href="/">slopster</a>
-              <p class="brand-tag">independent internet menace, static-site tinkerer, and general stain on polite web design</p>
-            </div>
-            <div class="sunken-panel header-status" aria-label="site status">
-              <p>status: online and judgemental</p>
-              <p>render mode: windows 98</p>
-            </div>
-          </div>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="wrap header-wrap">
+          <a class="brand" href="/">slopster</a>
           <nav aria-label="Primary" class="site-nav">
-            <a href="/"{% if page.url == '/' %} class="nav-button is-current" aria-current="page"{% else %} class="nav-button"{% endif %}>home</a>
-            <a href="/about/"{% if page.url == '/about/' %} class="nav-button is-current" aria-current="page"{% else %} class="nav-button"{% endif %}>about</a>
-            <a href="/manifesto/"{% if page.url == '/manifesto/' %} class="nav-button is-current" aria-current="page"{% else %} class="nav-button"{% endif %}>manifesto</a>
-            <a href="/now/"{% if page.url == '/now/' %} class="nav-button is-current" aria-current="page"{% else %} class="nav-button"{% endif %}>now</a>
-            <a href="/lab/"{% if page.url == '/lab/' %} class="nav-button is-current" aria-current="page"{% else %} class="nav-button"{% endif %}>lab</a>
-            <a href="/field-notes/"{% if page.url == '/field-notes/' %} class="nav-button is-current" aria-current="page"{% else %} class="nav-button"{% endif %}>field notes</a>
-            <a href="/links/"{% if page.url == '/links/' %} class="nav-button is-current" aria-current="page"{% else %} class="nav-button"{% endif %}>links</a>
-            <a href="/cv/"{% if page.url == '/cv/' %} class="nav-button is-current" aria-current="page"{% else %} class="nav-button"{% endif %}>cv</a>
-            <a href="/i-love-water/"{% if page.url == '/i-love-water/' %} class="nav-button water-button is-current" aria-current="page"{% else %} class="nav-button water-button"{% endif %}>I LOVE WATER</a>
+            <a href="/"{% if page.url == '/' %} class="is-current" aria-current="page"{% endif %}>home</a>
+            <a href="/about/"{% if page.url == '/about/' %} class="is-current" aria-current="page"{% endif %}>about</a>
+            <a href="/manifesto/"{% if page.url == '/manifesto/' %} class="is-current" aria-current="page"{% endif %}>manifesto</a>
+            <a href="/now/"{% if page.url == '/now/' %} class="is-current" aria-current="page"{% endif %}>now</a>
+            <a href="/lab/"{% if page.url == '/lab/' %} class="is-current" aria-current="page"{% endif %}>lab</a>
+            <a href="/field-notes/"{% if page.url == '/field-notes/' %} class="is-current" aria-current="page"{% endif %}>field notes</a>
+            <a href="/links/"{% if page.url == '/links/' %} class="is-current" aria-current="page"{% endif %}>links</a>
+            <a href="/cv/"{% if page.url == '/cv/' %} class="is-current" aria-current="page"{% endif %}>cv</a>
+            <a href="/i-love-water/"{% if page.url == '/i-love-water/' %} class="is-current nav-water" aria-current="page"{% else %} class="nav-water"{% endif %}>I LOVE WATER</a>
           </nav>
         </div>
       </header>
 
-      <main class="site-main">
-        <section class="window content-window">
-          <div class="title-bar">
-            <div class="title-bar-text">{% if title %}{{ title }}{% else %}home{% endif %}</div>
-            <div class="title-bar-controls" aria-hidden="true">
-              <button aria-label="Help" tabindex="-1"></button>
-            </div>
-          </div>
-          <div class="window-body page-body">
-            {{ content | safe }}
-          </div>
-        </section>
+      <main class="site-main wrap">
+        {{ content | safe }}
       </main>
 
-      <footer class="window footer-window">
-        <div class="status-bar">
-          <p class="status-bar-field">built with Eleventy and bad manners</p>
-          <p class="status-bar-field">no gradients were harmed in the making of this version</p>
-          <p class="status-bar-field">fast pages, filthy edges</p>
+      <footer class="site-footer wrap">
+        <div>
+          <p class="footer-title">slopster dot internet</p>
+          <p class="muted">apple-inspired glossy filth, minus the corporate lobotomy.</p>
         </div>
+        <p class="muted footer-stamp">clean chrome, rude copy.</p>
       </footer>
     </div>
   </body>
