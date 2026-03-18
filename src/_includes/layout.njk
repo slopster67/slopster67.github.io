@@ -7,36 +7,60 @@
     <meta name="description" content="{{ description or 'slopster: independent internet menace, foul-mouthed web tinkerer, and a general stain on polite web design.' }}" />
     <link rel="stylesheet" href="/css/site.css" />
   </head>
-  <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <div class="wrap header-wrap">
-          <a class="brand" href="/">slopster</a>
-          <nav aria-label="Primary" class="site-nav">
-            <a href="/"{% if page.url == '/' %} class="is-current" aria-current="page"{% endif %}>home</a>
-            <a href="/about/"{% if page.url == '/about/' %} class="is-current" aria-current="page"{% endif %}>about</a>
-            <a href="/manifesto/"{% if page.url == '/manifesto/' %} class="is-current" aria-current="page"{% endif %}>manifesto</a>
-            <a href="/now/"{% if page.url == '/now/' %} class="is-current" aria-current="page"{% endif %}>now</a>
-            <a href="/lab/"{% if page.url == '/lab/' %} class="is-current" aria-current="page"{% endif %}>lab</a>
-            <a href="/field-notes/"{% if page.url == '/field-notes/' %} class="is-current" aria-current="page"{% endif %}>field notes</a>
-            <a href="/links/"{% if page.url == '/links/' %} class="is-current" aria-current="page"{% endif %}>links</a>
-            <a href="/cv/"{% if page.url == '/cv/' %} class="is-current" aria-current="page"{% endif %}>cv</a>
-            <a href="/i-love-water/"{% if page.url == '/i-love-water/' %} class="is-current nav-water" aria-current="page"{% else %} class="nav-water"{% endif %}>I LOVE WATER</a>
-          </nav>
-        </div>
-      </header>
+  <body class="{% if page.url == '/' %}home{% else %}subpage{% endif %}">
+    <div id="globalheader" class="slopster-clone">
+      <ul id="globalnav">
+        <li class="gn-slopster"><a href="/">slopster</a></li>
+        <li><a href="/about/">about</a></li>
+        <li><a href="/manifesto/">manifesto</a></li>
+        <li><a href="/now/">now</a></li>
+        <li><a href="/lab/">lab</a></li>
+        <li><a href="/field-notes/">field notes</a></li>
+        <li><a href="/links/">links</a></li>
+        <li><a href="/cv/">cv</a></li>
+      </ul>
+      <div id="globalsearch">
+        <form class="search" action="/links/" method="get">
+          <div class="search-wrapper empty blurred">
+            <span class="left"></span>
+            <label for="sp-searchtext"><span class="prettyplaceholder">Search</span><input type="search" name="q" id="sp-searchtext" class="prettysearch applesearch" placeholder="search, sort of"></label>
+            <span class="right"></span>
+          </div>
+        </form>
+      </div>
+    </div>
 
-      <main class="site-main wrap">
-        {{ content | safe }}
-      </main>
-
-      <footer class="site-footer wrap">
-        <div>
-          <p class="footer-title">slopster dot internet</p>
-          <p class="muted">apple-inspired glossy filth, minus the corporate lobotomy.</p>
+    {% if page.url == '/' %}
+      {{ content | safe }}
+    {% else %}
+      <div id="container">
+        <div id="main">
+          <div id="content" class="subpage-content">
+            {{ content | safe }}
+          </div>
         </div>
-        <p class="muted footer-stamp">clean chrome, rude copy.</p>
-      </footer>
+      </div>
+    {% endif %}
+
+    <div id="homefooter">
+      <div id="links">
+        <p class="left">browse the <a href="/">home page</a>, poke around the <a href="/lab/">lab</a>, or rifle through the <a href="/field-notes/">notes</a>.</p>
+        <ul class="piped right">
+          <li><a href="/about/" class="first">About</a></li>
+          <li><a href="/manifesto/">Manifesto</a></li>
+          <li><a href="/now/">Now</a></li>
+          <li><a href="/links/">Links</a></li>
+          <li><a href="/cv/">CV</a></li>
+          <li><a href="/i-love-water/">I LOVE WATER</a></li>
+        </ul>
+      </div>
+      <div class="sosumi">
+        <p class="copyright">Copyright © 2026 slopster. All rights reserved, unfortunately.</p>
+        <ul class="piped">
+          <li><a href="/manifesto/" class="first">Terms of Attitude</a></li>
+          <li><a href="/about/">Who This Goblin Is</a></li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
