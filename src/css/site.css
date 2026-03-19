@@ -8,79 +8,92 @@ body {
   background: #0000aa;
   color: #ffffff;
   font-family: "Lucida Console", Monaco, monospace;
-  font-size: 20px;
-  line-height: 1.28;
+  font-size: 16px;
+  line-height: 1.18;
   -webkit-font-smoothing: none;
   text-rendering: optimizeSpeed;
 }
 
 .bsod-screen {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
+  padding: 0;
 }
 
 .bsod-wrap {
-  width: min(100%, 880px);
+  width: min(100vw, 640px);
+  min-height: min(100vh, 400px);
+  margin: 0 auto;
+  padding-top: clamp(72px, 16vh, 126px);
 }
 
 .bsod-badge {
   display: table;
-  margin: 0 auto 28px;
-  padding: 1px 10px 2px;
+  margin: 0 auto 22px;
+  padding: 0 9px 1px;
   background: #c0c0c0;
   color: #0000aa;
 }
 
 .bsod-copy {
-  white-space: normal;
+  width: calc(100% - 78px);
+  margin-left: 39px;
 }
 
 .bsod-lead,
+.bsod-point,
 .bsod-continue {
   margin: 0;
 }
 
 .bsod-lead {
-  margin-bottom: 1.4em;
+  margin-bottom: 16px;
 }
 
-.bsod-list {
-  margin: 0 0 1.8em;
-  padding: 0;
-  list-style: none;
+.bsod-points {
+  margin-bottom: 30px;
 }
 
-.bsod-list li {
-  position: relative;
-  margin: 0 0 0.65em;
-  padding-left: 1.2em;
+.bsod-point {
+  margin-bottom: 16px;
 }
 
-.bsod-list li::before {
-  content: "*";
-  position: absolute;
-  left: 0;
-  top: 0;
+.bsod-point:last-child {
+  margin-bottom: 0;
 }
 
 .bsod-continue {
   text-align: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   body {
-    font-size: 17px;
-  }
-
-  .bsod-screen {
-    align-items: flex-start;
-    padding: 20px 16px 28px;
+    font-size: 14px;
   }
 
   .bsod-wrap {
     width: 100%;
+    min-height: 100vh;
+    padding-top: 84px;
+  }
+
+  .bsod-badge {
+    margin-bottom: 18px;
+  }
+
+  .bsod-copy {
+    width: calc(100% - 36px);
+    margin-left: 18px;
+  }
+
+  .bsod-lead {
+    margin-bottom: 14px;
+  }
+
+  .bsod-points {
+    margin-bottom: 24px;
+  }
+
+  .bsod-point {
+    margin-bottom: 14px;
   }
 }
