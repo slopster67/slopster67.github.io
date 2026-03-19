@@ -35,15 +35,39 @@ body {
 }
 
 .bsod-copy {
-  white-space: pre-wrap;
+  white-space: normal;
 }
 
-.bsod-copy p {
-  margin: 0 0 1.35em;
+.bsod-lead,
+.bsod-continue {
+  margin: 0;
 }
 
-.bsod-copy p:last-child {
-  margin-bottom: 0;
+.bsod-lead {
+  margin-bottom: 1.4em;
+}
+
+.bsod-list {
+  margin: 0 0 1.8em;
+  padding: 0;
+  list-style: none;
+}
+
+.bsod-list li {
+  position: relative;
+  margin: 0 0 0.65em;
+  padding-left: 1.2em;
+}
+
+.bsod-list li::before {
+  content: "*";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.bsod-continue {
+  text-align: center;
 }
 
 @media (max-width: 900px) {
